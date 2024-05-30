@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
 
 
 
-export const register = async (req, res) => {
+export const  register = async (req, res) => {
 
     try {
         // Check if a user with the same email already exists
@@ -22,6 +22,7 @@ export const register = async (req, res) => {
             username: req.body.username,
             email: req.body.email,
             password: hash,
+            role:req.body.role,
             photo: req.body.photo
         })
 
@@ -56,7 +57,7 @@ export const login = async (req, res) => {
         const { password, role, ...rest } = user._doc
 
         // create jwt token
-        const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET_KEY, { expiresIn: "15d" })
+        const token = jwt.sign({ id: user._id, role: user.role }, "Abhinav1234", { expiresIn: "15d" })
 
         // set token in the browser cookies and send the response to the client
         res.cookie('accessToken', token, {

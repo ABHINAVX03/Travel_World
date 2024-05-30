@@ -1,4 +1,4 @@
 node_modules
 backend/.env
-frontend/src/assets/data/tours21.json
-backend/.env
+backend/frontend/src/assets/data/tours21.json
+Admin/backend/.env
